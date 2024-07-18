@@ -531,7 +531,10 @@ app.get('/api/income/verification/paystubs', function (request, response, next) 
 //   console.log('Server listening on port ' + APP_PORT);
 // });
 
-app.use("/", (req,res)=> {
+app.use("/api", (req,res)=> {
+  console.log(error);
+  prettyPrintResponse(error.res);
+  res.json(formatError(error.res));
   res.send("Server is running")
 });
 
