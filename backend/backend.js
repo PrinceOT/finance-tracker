@@ -521,15 +521,21 @@ app.get('/api/income/verification/paystubs', function (request, response, next) 
   .catch(next);
 })
 
-app.use('/', function (error, request, response, next) {
-  console.log(error);
-  prettyPrintResponse(error.response);
-  response.json(formatError(error.response));
+// app.use('/', function (error, request, response, next) {
+//   console.log(error);
+//   prettyPrintResponse(error.response);
+//   response.json(formatError(error.response));
+// });
+
+// const server = app.listen(APP_PORT, function () {
+//   console.log('Server listening on port ' + APP_PORT);
+// });
+
+app.use("/", (req,res)=> {
+  res.send("Server is running")
 });
 
-const server = app.listen(APP_PORT, function () {
-  console.log('Server listening on port ' + APP_PORT);
-});
+app.listen(5050,console.log("Server started on PORT 5000"));
 
 const prettyPrintResponse = (response) => {
   console.log(util.inspect(response.data, { colors: true, depth: 4 }));
