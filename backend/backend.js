@@ -2,7 +2,7 @@
 'use strict';
 
 // read env vars from .env file
-require('dotenv').config();
+
 const { Configuration, PlaidApi, Products, PlaidEnvironments} = require('plaid');
 const util = require('util');
 const { v4: uuidv4 } = require('uuid');
