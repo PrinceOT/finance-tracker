@@ -521,7 +521,7 @@ app.get('/api/income/verification/paystubs', function (request, response, next) 
   .catch(next);
 })
 
-app.use('/api', function (error, request, response, next) {
+app.use('/', function (error, request, response, next) {
   console.log(error);
   prettyPrintResponse(error.response);
   response.json(formatError(error.response));
