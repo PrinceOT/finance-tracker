@@ -15,7 +15,7 @@ import axios from "axios";
 import moment from "moment";
 import Tables from '../components/Tables/transactionstable';
 import tran from "../assets/transactions.svg";
-import PlaidLink from '../components/Plaid_link/plaidlink2.jsx';
+import PlaidLink from '../components/Plaid_link/plaidlink.jsx';
 import NestedList from '../components/account_list/list.js';
 
 function Dashboard() {
@@ -96,35 +96,7 @@ console.log(docSnap.exists())
   }
 };
 
-async function fetchA(){
-  setLoading(true)
-  if (user){
-    const querySnapshot = await getDocs(collection(db, `users/${user.uid}/accounts`));
-    let accountarray = [];
-    const docs = querySnapshot.docs.map(doc => doc.data());
-    const data = docs.map((d) => d.transactions)
-    data.map((d) => d.map((i)=>{ var obj = {
-        type:"expense",
-        date: i.date,
-        amount: i.amount,
-        tag:"Other",
-        name:i.name,
-      }
-      accountarray.push(obj)
-     }))
-   
-  
-    
-    // const newTrans = {
-    //   type:"expense",
-    //   date: values.date.format("YYYY-MM-DD"),
-    //   amount: parseFloat(values.amount),
-    //   tag:values.tag,
-    //   name:values.name,
-    // };
 
-  }
-}
 async function fetchT(){
   setLoading(true);
   if (user){
@@ -156,7 +128,7 @@ async function fetchT(){
       
      })
     setTransaction(transactionsArray);
-    toast.success("yes");
+   
   }
   setLoading(false);
 }

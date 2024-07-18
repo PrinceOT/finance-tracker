@@ -28,11 +28,9 @@ const PlaidLink = () => {
     createLinkToken();
   
   }, []);
-  useEffect(() => {
-    
   
-    
-  }, [brand])
+
+  
   
 
   const onSuccess = useCallback((publicToken, metadata) => {
@@ -52,9 +50,9 @@ const PlaidLink = () => {
       const response3 = await axios.get(`${apiUrl}/api/balance`, {
         public_token: publicToken
       });
-       console.log(docSnap.exists())
-       console.log(brand, b)
-       console.log(inst, i)
+      
+       
+       
        if(!docSnap.exists()){
           
         

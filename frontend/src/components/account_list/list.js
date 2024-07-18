@@ -30,7 +30,7 @@ import IconButton from '@mui/material/IconButton';
 import CommentIcon from '@mui/icons-material/Comment';
 
 
-export default function NestedList({accounts}) {
+export default function NestedList({}) {
  const [user] = useAuthState(auth)
   const [open, setOpen] = React.useState(true);
   const [DocNames,setDocNames] = useState([]);
@@ -40,6 +40,7 @@ export default function NestedList({accounts}) {
   useEffect(() => {
    
     const fetch = async () => {
+      if (user){
         const querySnapshot = await getDocs(collection(db, `users/${user.uid}/accounts`));
     const names = querySnapshot.docs.map(doc => doc.id);
     const test = querySnapshot.docs.map(doc =>  ({name: doc.id, 
@@ -81,12 +82,13 @@ export default function NestedList({accounts}) {
      console.log(transactionsArray)
     
     setDocNames(test);
+      }
    
     
     }
     fetch();
     
-  }, [])
+  }, [user])
   
 
   const handleClick = () => {
