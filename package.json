@@ -1,7 +1,7 @@
 {
+  "homepage": "https://princeot.github.io/finance-tracker",
   "name": "finance-tracker",
   "version": "0.1.0",
-  "homepage": "https://princeot.github.io/finance-tracker",
   "private": true,
   "dependencies": {
     "@ant-design/charts": "^2.1.1",
