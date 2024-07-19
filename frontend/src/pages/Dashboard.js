@@ -50,16 +50,16 @@ useEffect(() => {
 }, [transactions])
 
 async function calculate(){
-  let t = 0;
+  
   let it = 0;
   let et = 0;
-  let aet = 0;
+ 
   transactions.forEach((transactions) => {
     
     if (transactions.type === "income"){
       it += transactions.amount;
     } else {
-      et += transactions.amount;
+      et += Math.abs(transactions.amount);
     }
     }
   );
