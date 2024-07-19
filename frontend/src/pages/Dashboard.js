@@ -64,36 +64,11 @@ async function calculate(){
     }
   );
   setIncome(it);
-  setExpense(et + aet);
+  setExpense(et);
   // const querySnapshot = await getDocs(collection(db, `users/${user.uid}/accounts`));
   //  querySnapshot.docs.map(doc => t+= (doc.data().balance));
-  setTotalBalance(it - et + t)
+  setTotalBalance(it - et)
 
-};
-const getgames = async  () => {
-
-
-  
-  try {
-    const docRef = doc(db, `users/${user.uid}/accounts`, "HSBC (UK) - Personal");
-const docSnap = await getDoc(docRef);
-console.log(docSnap.data().transactions)
-console.log(docSnap.exists())
-       const response = await axios.get(`${apiUrl}/api/transactions`);
-      const response2 = await axios.get(`${apiUrl}/api/balance`);
-
-      const querySnapshot = await getDocs(collection(db, `users/${user.uid}/accounts`));
-      const names = querySnapshot.docs;
-      console.log(names)
-      
-      
-      console.log(response.data.latest_transactions);
-      console.log(response2.data.accounts[0].balances.available);
-  
-  } catch (error) {
-      console.error('Error fetching user data:', error);
-      
-  }
 };
 
 
@@ -273,7 +248,7 @@ const cardStyle = {
        <AddExpenseModal isExpenseModalVisible={isExpensiveModalVisible}
      title="Add Expense" handleExpenseCancel={handleExpensiveCancel} onFinish={onFinish}/> 
      
-      <button onClick={getgames}></button>
+     
     {transactions.length!=0?<>
   
               <Row gutter={16}>
